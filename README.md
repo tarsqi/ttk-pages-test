@@ -19,34 +19,30 @@ With the version number as above the following will happen:
 
 TODO:
 
-- When this is done, create version 3.0.1. Do not create a version 3.0.0 of the documentation!  (**<span style="color:red;">OPEN ISSUE</span>**)
+- When this is done, create version 3.0.1. Do not create a version 3.0.0 of the documentation!  (**DONE**)
 
-- Update VERSION and CHANGELOG.  (**<span style="color:red;">OPEN ISSUE</span>**)
+- Update CHANGELOG.  (**DONE**)
 
-- Update support, add VA.  (**<span style="color:red;">OPEN ISSUE</span>**)
+- Include running `make_documentation.py` in `publish.py`.  (**<span style="color:red;">OPEN ISSUE, NO HURRY</span>**)
 
-- Get rid of the version index with link back to the code, just make that the manual.  (**<span style="color:red;">OPEN ISSUE</span>**)
+- Rethink the whole documentation string issue.  (**<span style="color:red;">OPEN ISSUE, NO HURRY</span>**)
 
-- Include running `make_documentation.py` in `publish.py`.  (**<span style="color:red;">OPEN ISSUE</span>**)
-
-- Rethink the whole documentation string issue.  (**<span style="color:red;">OPEN ISSUE</span>**)
-
-  - do we really want each version to link back to the latest docstrings?
-  - do we really want them on the docs site?
+  - do we really want each version to link back to the latest docstrings? → NO
+  - do we really want them on the docs site? → YES
   - may want to move some documentation out of `docs/`
     - keep publications for sure
     - maybe also some of the design documents
     - but only link to them from the main page, not from the manuals
 
-- For version 3.0.2, think about using a publish directory that contains templates and such.  (**<span style="color:red;">OPEN ISSUE</span>**)
+- For version 3.0.2, think about using a publish directory that contains templates and such.  (**<span style="color:red;">OPEN ISSUE, v3.0.2</span>**)
 
   - should also have `make_documentation.py`
   - and instructions on where all documentation is
 
-- The link to the random notes on github.com has to be changed from `ttk-test-pages` to `ttk.` Actually, make it the right one right now, but be sure never to add an index file to the directory unless you are willing to maintain it.  For the github.io link, it will not do anything unless there is an index link, so maybe I should generate that file automatically.  (**<span style="color:red;">OPEN ISSUE</span>**)
+- The link to the random notes on github.com has to be changed from `ttk-test-pages` to `ttk.` Actually, make it the right one right now, but be sure never to add an index file to the directory unless you are willing to maintain it.  For the github.io link, it will not do anything unless there is an index link, so maybe I should generate that file automatically.  (**DONE**)
 
-- Move some of these notes to the ttk repository.  (**<span style="color:red;">OPEN ISSUE</span>**)
+- Move some of these notes to the ttk repository.  (**<span style="color:red;">OPEN ISSUE, v3.0.2</span>**)
 
-- Rewrite the text on the docstrings, should make clear that for any version you can run the script (allow for the possible differences between <=3.0.1 and >=3.0.2).  (**<span style="color:red;">OPEN ISSUE</span>**)
+- Rewrite the text on the docstrings, should make clear that for any version you can run the script (allow for the possible differences between <=3.0.1 and >=3.0.2).  (**<span style="color:red;">OPEN ISSUE, v3.0.2</span>**)
 
   

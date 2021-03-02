@@ -9,16 +9,15 @@
 
 <h1>The TARSQI Toolkit Manual</h1>
 
-<p class="subtitle">Release Notes and Manual for TTK Version 3.0.0. January 2021.
+<p class="subtitle">Release Notes and Manual for TTK Version $VERSION. $DATE_STR.
 
 <p class="navigation">
 [ <a href="#intro">introduction</a>
 | <a href="#prereq">installation</a>
 | <a href="#using">getting started</a>
 | <a href="#docs">documentation</a>
+| <a href="#contact">reporting bugs</a>
 | <a href="#contrib">contributors</a>
-| <a href="#contact">contact</a>
-| <a href="#future">future</a>
 | <a href="#license">license</a>
 ]
 </p>
@@ -71,8 +70,8 @@ well). Java is needed to run the third party software used by the toolkit.</p>
 <p>Two Python packages need to be installed:</p>
 
 <pre class="example">
-$ pip install future
-$ pip install six
+$$ pip install future
+$$ pip install six
 </pre>
 
 
@@ -96,7 +95,7 @@ $ pip install six
       website</a> and follow the directions. You can install the TreeTagger
       wherever you like, but you may need to tell the Toolkit where it can find
       the tagger (see below). There is an
-      <a href="../../build/install-treetagger-osx.sh">example script</a> in the
+      <a href="build/install-treetagger-osx.sh">example script</a> in the
       <code>build</code> directory which shows how to install the TreeTagger on
       Mac OSX. (Note: all directory and file names printed in this manual are
       relative to the path where TTK is installed).</p>
@@ -104,14 +103,14 @@ $ pip install six
 
   <li>
     <p>Install MALLET. The classifiers in the Toolkit use the MAchine Learning
-      for LanguagE Toolkit (McCallum, Andrew Kachites. "MALLET: A Machine
-      Learning for Language Toolkit."
+      for LanguagE Toolkit (McCallum, Andrew Kachites. <i>MALLET: A Machine
+      Learning for Language Toolkit.</i>
       <a href="http://mallet.cs.umass.edu">http://mallet.cs.umass.edu</a>. 2002). Download
       version 2.0.8
       from <a href="http://mallet.cs.umass.edu/download.php">http://mallet.cs.umass.edu/download.php</a>. Version
       2.0.7 will work as well. You can put MALLET wherever you want, but as with
       the TreeTagger you may need to tell the Toolkit where to find it. There is
-      an <a href="../../build/install-mallet-osx.sh"> example script</a> in the
+      an <a href="build/install-mallet-osx.sh"> example script</a> in the
       <code>build</code> directory which shows how to install MALLET on Mac
       OSX. For Windows, you need to set the MALLET_HOME environment variable in
       addition to editing the configuration file.</p>
@@ -137,7 +136,7 @@ the following at the prompt (we use the dollar sign as the prompt in all
 examples):</p>
 
 <pre class="example">
-$ python tarsqi.py data/in/simple-xml/tiny.xml out.xml
+$$ python tarsqi.py data/in/simple-xml/tiny.xml out.xml
 </pre>
 
 <p>If all is well you will now have a file named <code>out.xml</code> with
@@ -151,9 +150,9 @@ Fido sleeps today.
 
 &lt;/text>
 &lt;metadata>
-  &lt;dct value="20210105"/>
+  &lt;dct value="$DATE"/>
   &lt;processing_steps>
-  &lt;processing_step ttk_version="3.0.0" git_commit="bae1870" timestamp="20210105-145711"
+  &lt;processing_step ttk_version="$VERSION" git_commit="bae1870" timestamp="$TIMESTAMP"
                    components="PREPROCESSOR,GUTIME,EVITA,SLINKET,S2T,BLINKER,CLASSIFIER"/>
   &lt;/processing_steps>
 &lt;/metadata>
@@ -181,11 +180,10 @@ Fido sleeps today.
 &lt;/ttk>
 </pre>
 
-<p>Your output file will be slightly different in that the value in
-the <code>dct</code> tag will be the date you ran the test, and you will also
-have a different git commit in the processing step or no commit identifier at
-all. There will also be minor format changes because some tags were put on two
-lines above for display purposes (TTK output has each tag on one line).</p>
+<p>Your output file will not be identical to this in that some dates and
+identifiers in the metadata will be different. There will also be minor format
+changes because some tags were put on two lines above for display purposes (TTK
+output has each tag on one line).</p>
 
 <p><u>A note for Windows users</u>. TTK 1.0 depended on some software that did
 not run on Windows. The current version does not have that problem and the code
@@ -203,8 +201,8 @@ to the top-level directory of the distribution. You can run Tarsqi on a file or
 a directory and the general format of the command is as follows:</p>
 
 <pre class="example">
-$ python tarsqi.py [OPTIONS] INFILE OUTFILE
-$ python tarsqi.py [OPTIONS] INDIR OUTDIR
+$$ python tarsqi.py [OPTIONS] INFILE OUTFILE
+$$ python tarsqi.py [OPTIONS] INDIR OUTDIR
 </pre>
 
 <p>In the first invocation INFILE needs to exist but OUTFILE should not. In the
@@ -218,7 +216,7 @@ except for hidden files (starting with '.') and backup files (ending in '~').</p
 can be set in the configuration file (<code>config.txt</code>) or overruled on
 the command line. For a full list see the configuration file and the module
 documentation string in <code>tarsqi</code> (which can be browsed
-at <a href="../code/modules/tarsqi.html">docs/code/modules/tarsqi.html</a>). Here
+at <a href="../code/modules/tarsqi.html">../code/modules/tarsqi.html</a>). Here
 we just present the three options you are most likely to use.</p>
 
 <p><code>--source-format xml|text|ttk|timebank|...</code></p>
@@ -357,8 +355,8 @@ file. This is in fact the default pipeline.</p>
 the <code>--source-format</code> and <code>--pipeline</code> options:</p>
 
 <pre class="example">
-$ python tarsqi.py --source-format xml --pipeline TOKENIZER test.xml test.tokenized.xml
-$ python tarsqi.py --source-format ttk --pipeline TAGGER test.tokenized.xml test.tagged.xml
+$$ python tarsqi.py --source-format xml --pipeline TOKENIZER test.xml test.tokenized.xml
+$$ python tarsqi.py --source-format ttk --pipeline TAGGER test.tokenized.xml test.tagged.xml
 </pre>
 
 <p>Note how the second line uses the ttk source type because output is always in
@@ -368,63 +366,31 @@ let the toolkit determine the source from the input file.</p>
 
 <a name="docs"></a>
 
-<h2>4. Documentation</h2>
+<h2>4. Further Documentation</h2>
 
-<p>There is more documentation apart from the installation notes and minimal
-manual in this document. All documentation is in the <code>docs</code>
-directory. Some of it is quite useful, but some documents are there merely for
-historical reasons. Here is a short description for each subdirectory
-in <code>docs</code>:</p>
-
-<table cellspacing="0" cellpadding="5" border="1">
-
-<tr valign=top>
-<td>docs/code</td>
-<td>The Python code's documentation can be browsed
-at <a href="../code/index.html">docs/code/index.html</a>, which has a list of
+<p>The <a href="../../../code/index.html">code documentation</a> has a list of
 links to all modules. For each module the documentation strings for classes and
 functions are printed. Documentation of the code is uneven: some modules are
 well-documented, other have spotty and underwhelming documentation or are not
-documented at all. The pages are generated with the
-<code>utilities/make_documentation.py</code> script, which was created
-because the <code>pydoc</code> command used to crash on many of the toolkit
-modules.</td>
-</tr>
+documented at all. The pages were automatically generated with the
+<code>make_documentation.py</code> script in the <code>utilities</code>
+directory, which was created because the <code>pydoc</code> command crashes on
+many of the toolkit modules.</p>
 
-<tr valign=top>
-<td>docs/design</td>
-<td>Notes on the overall design of the toolkit and the algorithms used in many
-components are
-in <a href="../design/index.html">docs/design/index.html</a>. These notes are a
-work in progress and many sections are unfinished. There is a list of tags
-generated by the toolkit
-in <a href="../design/1-toplevel.html#tags">docs/design/1-toplevel.html#tags</a>.</td>
-</tr>
+<p>Several <a href="../../../design/index.html">design documents</a> contain
+notes on the overall design of the toolkit and the algorithms used in many
+components. These notes are a work in progress and many sections are
+unfinished. The end of the <a href="../../../design/1-toplevel.html">top-level
+design document</a> includes a list of tags generated by the toolkit.</p>
 
-<tr valign=top>
-<td>docs/manual</td>
-<td>Contains the document you are reading now.</td>
-</tr>
-
-<tr valign=top>
-<td>docs/notes</td>
-<td>Various random notes on the Tarsqi toolkit including descriptions of parts
-of the system and how-to guides. Many are fairly recent, but some are very much
+<p>The are also <a href="../../../notes/">various random notes</a> notes on the
+Tarsqi toolkit including descriptions of parts of the system, how-to guides and
+old specifications. Many are fairly recent, but some are very much
 out-of-date. The recent ones tend to be written in Github flavoured markdown and
-can best be viewed on Github
-at <a href="https://github.com/tarsqi/ttk/tree/master/docs/notes"
->https://github.com/tarsqi/ttk/tree/master/docs/notes</a>.</td>
-</tr>
+are best viewed on Github.</p>
 
-<tr valign=top>
-<td>docs/specifications</td>
-<td>Contains a document written a decade ago, for historical interest only.</td>
-</tr>
-
-</table>
-
-<p>In addition to the documentation there is a list
-of <a href="../papers/index.html">published papers</a> on Tarsqi.</p>
+<p>Finally, there is a list of <a href="../../../papers/index.html">published
+papers</a> on Tarsqi.</p>
 
 
 <!--
@@ -458,6 +424,18 @@ Note that this should really be fixed by using the new treetaggerwrapper.</p>
 -->
 
 
+<a name="contact"></a>
+
+<h2>6. Reporting bugs</h2>
+
+<p>Use <a href="https://github.com/tarsqi/ttk/issues">https://github.com/tarsqi/ttk/issues</a>
+for any issue, question or comment you may have. When reporting a bug, please be
+as specific as you can. Give us the version of the code you are running, your
+platform specifics, the input that gives you grief, and any other particulars
+that seem relevant. Support is uneven, but at irregular intervals we do check
+the list of issues.</p>
+
+
 <a name=contrib><h2>5. Contributors</h2></a>
 
 <p>Many people have contributed to the Tarsqi project, they are listed here in
@@ -466,58 +444,11 @@ Josh Gieringer, Catherine Havasi, Jerry Hobbs, Seokbae Jang, Bob Knippen,
 Congmin Lee, Inderjeet Mani, Emin Mimaroglu, Jessica Moszkowicz, Feng Pan, John
 Phillips, Alex Plotnick, James Pustejovsky, Hongyuan Qiu, Ruth Reeves, Anna
 Rumshisky, Sanjib Kumar Saha, Roser Saur&iacute;, Barry Schiffman, Andrew See,
-Amber Stubbs, Kevin Thomas, Marc Verhagen and Ben Wellner.</p>
+Amber Stubbs, Kevin Thomas, Marc Verhagen, Ben Wellner and Dax Westerman.</p>
 
 <p>From 2001-2008, work on Tarsqi was performed in the context of the IARPA
 AQUAINT Program. We are in particular thankful for the early support of John
 Prange and Heather McCallum-Bayliss.</p>
-
-<!--
-<p>
-The Tango annotation tool was developed by Linda van Guilder, Andrew
-See, Bob Knippen and Alex Baron.
--->
-
-
-<a name="contact"></a>
-
-<h2>6. Contact</h2>
-
-<p>Please send an email to ttk-bugs@timeml.org with any issue, question or
-comment you may have. When reporting a bug, please be as specific as you
-can. Give us the version of the code you are running, your platform specifics,
-the input that gives you grief, and any other particulars that seem
-relevant.</p>
-
-
-<a name="future"></a>
-
-<h2>7. Future Releases</h2>
-
-<p>To get an idea of what will be in the next release of the Tarsqi Toolkit it
-is best to start with the list of issues
-at <a href="https://github.com/tarsqi/ttk/issues">https://github.com/tarsqi/ttk/issues</a>. Some
-bigger items at the back of our minds include the following:</p>
-
-<ul>
-
-<li>Add reference intervals to the temporal closure code, which should reduce
-time complexity. Consider implementing parts in C or Java.</li>
-
-<li>Finish implementation of BTime, the new Tarsqi component for recognizing
-temporal expressions (not included in this repository). BTime use an Early
-algorith for recognizing time expressions. Currently its recall is too low due
-to having a small grammar. It will not replace GUTime untill it outperforms
-GUTime.</li>
-
-<li>Revisit the rules in Blinker. May include revisiting old GutenLink rules.</li>
-
-<li>Hook up the toolkit to other processing components (most notably
-HeidelTime).</li>
-
-<li>Add browsers and editors for the dictionaries and pattern sets.</li>
-
-</ul>
 
 
 <a name="license"></a>

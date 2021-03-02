@@ -66,7 +66,7 @@ TODO:
   - should also have `make_documentation.py`
   - and instructions on where all documentation is
 
-- The link to the random notes has to be changed from `ttk-test-pages` to `ttk.`  (**<span style="color:red;">OPEN ISSUE</span>**)
+- The link to the random notes on github.com has to be changed from `ttk-test-pages` to `ttk.` Actually, make it the right one right now, but be sure never to add an index file to the directory unless you are willing to maintain it.  For the github.io link, it will not do anything unless there is an index link, so maybe I should generate that file automatically.  (**<span style="color:red;">OPEN ISSUE</span>**)
 
 - Move some of these notes to the ttk repository.  (**<span style="color:red;">OPEN ISSUE</span>**)
 

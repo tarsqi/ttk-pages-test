@@ -1,3 +1,0 @@
-# ttk-pages-test
-
-Testing...

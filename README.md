@@ -66,6 +66,8 @@ TODO:
   - should also have `make_documentation.py`
   - and instructions on where all documentation is
 
+- The link to the random notes has to be changed from `ttk-test-pages` to `ttk.`  (**<span style="color:red;">OPEN ISSUE</span>**)
+
 - Move some of these notes to the ttk repository.  (**<span style="color:red;">OPEN ISSUE</span>**)
 
 - Rewrite the text on the docstrings, should make clear that for any version you can run the script (allow for the possible differences between <=3.0.1 and >=3.0.2).  (**<span style="color:red;">OPEN ISSUE</span>**)

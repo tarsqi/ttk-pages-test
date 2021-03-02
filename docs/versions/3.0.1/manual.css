@@ -13,6 +13,7 @@ body, p, td {
 h1 {
     background: linear-gradient(rgba(128,207,216,0.6), rgba(127,202,147,0.45));
     border: thin solid gray;
+    border-radius: 5px;
     margin-top: 10pt;
     padding: 15pt;
     padding-left: 10pt;
@@ -39,6 +40,7 @@ code {
     margin-right: 30pt;
     padding: 10pt;
     border: thin dotted gray;
+    border-radius: 5px;
     font-family: monospace;
     background-color: #eee;
 }
@@ -47,6 +49,22 @@ code {
     font-size: 120%;
     margin-bottom: 30pt;
 }
+
+.navigation a {
+    text-decoration: none;
+    border: thin solid gray;
+    border-radius: 5px;
+    margin-right: 4pt;
+    padding: 4pt 6pt;
+    color: darkblue;
+    background-color: lightblue;
+}
+
+.navigation a:hover {
+    color: darkred;
+}
+
+
 
 .subtitle {
     font-size: 110%;
